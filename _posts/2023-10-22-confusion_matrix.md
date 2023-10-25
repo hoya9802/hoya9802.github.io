@@ -45,7 +45,7 @@ $F_{1}\, Score$는 Recall과 Precision의 조화평균으로 공식은 다음 $\
 $F_{\beta}\, Score$는 ${\beta}$값을 컨트롤 하면서 Recall과 Precision중 어느쪽에 비중을 더 줄 것인지를 나타내는 내는 평가 방식으로 식은 다음 $\frac{(1 + \beta) \times (Recall \times Precision)}{\beta \times (Recall + Precision)}$과 같고 {\beta}가 1이면 위의 $F_{1}$과 값이 일치하고 만약 {\beta}가 1보다 크면 Recall의 비중을 더 두는 것이고 만약 {\beta}가 1보다 작으면 Precision의 값의 더 중점을 두는 것으로 {\beta}값은 사용자가 자신의 모델의 맞게 선택해서 사용하면 된다.
 
 ## Example
-다음 사진과 같이 모델이 예측을 하였을때 $Recall, Precision, F_{1} \. Score$를 계산해보자
+다음 사진과 같이 모델이 예측을 하였을때 $Recall, Precision, F_{1}\,Score$를 계산해보자
 
 ![confusion_matrix_example](/images/2023-10-22-confusion_matrix/confusion_matrix_example.jpeg){: .img-width-half .align-center}
 
