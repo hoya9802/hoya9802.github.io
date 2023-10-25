@@ -37,6 +37,17 @@ Precision는 모델이 양성클래스로 예측한 것 중에서 실제 양성�
 Recall과 Precision은 실제로 많이 헷갈리는 공식입니다. 따라서 이해하기 쉽게 예를 들면 병원 입장에서는 암에 안걸렸는데 암에 걸렸다고 하는 것보다 암의 걸렸는데 암의 걸리지 않았다고 예측하는 것이 더 위험하기 때문에 이때 Recall를 통해서 <span style="color:red">**실제 암환자 중**</span> 얼마나 많은 암환자들을 예측했는지를 확인하는 것이고, 그러면 모델이 암의 걸렸는데 암의 걸리지 않았다고 하는 것이 위험하고 생각하고 모든 경우를 다 암의 걸렸다고 예측해버릴 수도 있기 때문에 이런 경우를 대비해서 Precision를 사용하여 <span style="color:red">**모델이 암이라고 예측한 사람들중**</span> 실제로 암의 걸린 사람들의 비율을 측정하는 것입니다.
 
 ## $F_{1}\, Score$
-
+$F_{1}\, Score$는 Recall과 Precision의 조화평균으로 공식은 다음 $\frac{2\times Recall \times Precision}{Recall + Precision}$ 으로 곱하기 2를 제외하면 전기회로의 병렬회로의 전체 저항값을 구하는 공식과 유사하다. 하지만 병렬회로의 전체저항을 구하게 되면 전체 저항의 값이 저항이 작은값 쪽으로 치우치는 경향이 있기 때문에 $F_{1}$에서는 곱하기 2를 해줌으로서 값이 Recall, Precision 어느쪽으로 치우치지 않게 해주는 것 같다.(개인적인 생각)![f1](/images/2023-10-22-confusion_matrix/f1.png){: .img-width-half .align-center}
 
 ## $F_{\beta}\, Score$
+$F_{\beta}\, Score$는 ${\beta}$값을 컨트롤 하면서 Recall과 Precision중 어느쪽에 비중을 더 줄 것인지를 나타내는 내는 평가 방식으로 식은 다음 $\frac{(1 + \beta) \times (Recall \times Precision)}{\beta \times (Recall + Precision)}$과 같고 {\beta}가 1이면 위의 $F_{1}$과 값이 일치하고 만약 {\beta}가 1보다 크면 Recall의 비중을 더 두는 것이고 만약 {\beta}가 1보다 작으면 Precision의 값의 더 중점을 두는 것으로 {\beta}값은 사용자가 자신의 모델의 맞게 선택해서 사용하면 된다.
+
+## Example
+다음 사진과 같이 모델이 예측을 하였을때 $Recall, Precision, F_{1} \. Score$를 계산해보자
+
+![confusion_matrix_example](/images/2023-10-22-confusion_matrix/confusion_matrix_example.jpeg){: .img-width-half .align-center}
+
+정답:
+* Recall = $\frac{4(모델이\,사람이라고\,예측한\,것\,중\,실제\,사람인\,것)}{4(실제\,사람\,얼굴\,개수)} = $  1(100%)
+* Precision = $\frac{4(모델이\,사람이라고\,예측한\,것\,중\,실제\,사람인\,것)}{5(모델이\,사람이라고\,인식한\,개수)} =$ 0.8(80%)
+* $F_{1}\,Score$ = $\frac{2\times(1\times0.8)}{1+0.8} =$0.8889(약 89%)
