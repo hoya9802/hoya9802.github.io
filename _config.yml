@@ -19,7 +19,7 @@ locale                   : "ko-KR"
 title                    : "Ian DLog"
 title_separator          : "|"
 subtitle                 : "More than Meets the EYE"
-name                     : "Euntaek Note"
+name                     : "Ian DLog"
 description              : "Welcome to my blog"
 url                      : "https://hoya9802.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
@@ -106,7 +106,7 @@ analytics:
 author:
   name             : "Euntaek"
   avatar           : "/assets/images/lockdown.jpeg"
-  bio              : "That is my dift blog"
+  bio              : "Welcome to MY DLog"
   location         : "South Korea"
   email            :
   links:
