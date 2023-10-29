@@ -9,6 +9,8 @@ sidebar:
     nav: 'counts'
 search: true
 use_math: true
+redirect_from:
+  - /math/Normal_Distribution
 ---
 
 ## Normal Distribution이란

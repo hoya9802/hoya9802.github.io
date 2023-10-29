@@ -9,6 +9,8 @@ sidebar:
     nav: 'counts'
 search: true
 use_math: true
+redirect_from:
+  - /math/confusion_matrix
 ---
 
 ## Confusion Matrix를 사용해야 하는 이유
