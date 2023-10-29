@@ -19,7 +19,7 @@ use_math: true
 
 ![Normal_Distribution_01](/images/2012-10-26-Normal_Distribution/Normal_Distribution_01.webp)
 
-### Fomula
+### Formula
 <p align="center">$f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \cdot e^{-\frac{(x - \mu)^2}{2\sigma^2}}$</p>
 
 이때:
@@ -50,7 +50,7 @@ use_math: true
 ### Standardization
 기존 정규분포를 표준정규분포로 바꾸는 과정을 표준화(Standardization)라고 한다.
 
-### Fomula
+### Formula
 <p align="center">$Z = \frac{X\, -\,\mu}{\sigma}$</p>
 
 이때:
