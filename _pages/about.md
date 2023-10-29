@@ -3,7 +3,7 @@ permalink: /about/
 title: "About"
 excerpt: "About Me"
 search: false
-toc: true
+toc: false
 
 --- 
 
@@ -19,7 +19,7 @@ padding: 5px;
 
 
 * NAME : Euntaek LEE
-* MAJOR : Electronic & Information Engineering
+* MAJOR : Electronics & Information Engineering
 
 ## Introduce
 인공지능과 컴퓨터 비전에 관심이 있어서 공부하고 틈틈히 블로그에 기록하는 대학생입니다.
