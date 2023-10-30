@@ -3,7 +3,7 @@ layout: single
 title:  "모델 성능 평가 - Confusion Matrix"
 typora-root-url: ../
 categories: Math
-tag: [evaludate, 기초통계, Deep Learning]
+tag: [Evaluate, 기초통계, Deep Learning]
 author_profile: false
 sidebar:
     nav: 'counts'
