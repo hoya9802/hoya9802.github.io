@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "통계학 - 정규분포(Normal Distribution)"
+title: "통계학 - 정규분포(Normal Distribution)"
 typora-root-url: ../
 categories: Math
 tag: [기초통계, Machine Learning, Statistics]
@@ -19,7 +19,7 @@ redirect_from:
 ### Shape
 그림과 같이 정규분포는 종모양(Bell shape)의 형태를 가지면서 좌우가 서로 대칭인 모양을 가지고 있습니다. 그리고 처음부터 끝까지의 넓이의 값은 항상 1을 가집니다.
 
-![Normal_Distribution_01](/images/2012-10-26-Normal_Distribution/Normal_Distribution_01.webp)
+![Normal_Distribution_01](/images/2023-10-26-Normal_Distribution/Normal_Distribution_01.webp)
 
 ### Formula
 <p align="center">$f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \cdot e^{-\frac{(x - \mu)^2}{2\sigma^2}}$</p>
@@ -38,14 +38,14 @@ redirect_from:
 
 ### Propertie of Normal Distribution
 <br>
-![normal_distributions](/images/2012-10-26-Normal_Distribution/normal_distributions.png)
+![normal_distributions](/images/2023-10-26-Normal_Distribution/normal_distributions.png)
 
 그림과 같이 만약 Group A의 정규분포는 $N(100,\,10^2)$을 따르고 Group B의 정규분포는 $N(150,\,15^2)$을 가질때, <span style="color:red">Group A의 대한 $P(90&le;x&le;110)$랑 Group B의 대한 $P(135&le;x&le;165)$는 항상 같은 값을 가집니다.</span>
 
 ## 표준정규분포(Standard Normal Distribution)
 같은 정규분포이지만 아래 그림과 같이 표준정규분포(Standard Normal Distribution)은 평균이 0이고 표준편차가 1인 정규분포입니다.
 
-![shape-of-the-normal-distribution](/images/2012-10-26-Normal_Distribution/shape-of-the-normal-distribution.webp){: .align-center}
+![shape-of-the-normal-distribution](/images/2023-10-26-Normal_Distribution/shape-of-the-normal-distribution.webp){: .align-center}
 
 따라서 표기법(Notation)은 $N(0,\,1^2)$ 로 표기합니다.
 
