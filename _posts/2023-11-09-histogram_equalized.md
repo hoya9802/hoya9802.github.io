@@ -18,7 +18,7 @@ published: true
 
 일반적으로 이미지는 각각의 픽셀들을 가지고 있는데 그때 해당 픽셀 값의 분포를 나타내는 그래프 표현이 Histogram(히스토그램)이고, 해당 히스토그램은 주로 어두운 픽셀값과 밝은 픽셀 값을 가지고 있습니다. 따라서 이때 이 히스토그램을 균일하게 하여 어두운 영역과 밝은 영역의 대비가 더욱 뚜렷해지면서 이전보다 더욱 뚜렷한 이미지를 얻을 수 있게 됩니다.
 
-## 히스토그램, 정규화 히스토그램 공식
+## Formula of Histogram, Normalized Histogram
 
 <p align="center">$h(l) =$ |{$(j,i)|f(j,i) = l$}|<br></p>
 <p align="center">$\hat{h} = \frac{h(l)}{M\times N}$</p>
@@ -32,6 +32,8 @@ published: true
 <p align='center'>$l_{out} = T(l_{in}) = round(c(l_{out})\times(L-1))$<br></p>
 <p align='center'>이때 $c(l_{in}) = \sum_{l=0}^{l_{in}}\hat{h}(l)$<br></p>
 
+위 식을 토대로 구하면 아래와 같은 값들을 구할 수 있습니다.
+
 |$l_{in}$|$\hat{h}(l_{in})$|$c(l_{in})$|$c(l_{in})\times5$|$l_{out}$|
 |:---:|:---:|:---:|:---:|:---:|
 |0|0.0625|0.0625|0.3125|0|
@@ -41,4 +43,22 @@ published: true
 |4|0.0625|0.9375|4.6875|5|
 |5|0.0625|1.0|5|5|
 
+구해진 값들로 다시 히스토그램을 만들어 보면 아래 사진과 같이 히스토그램이 평활화 된 것을 확인 할 수 있습니다.
+
+![output_image](/images/2023-11-09-histogram_equaized/output_image.jpeg)
+
+이런 히스토그램 평활화를 사용하면 이미지의 전반적인 대비를 향상시켜, 기존 이미지의 비해 뚜렷한 대비를 강조할 수 있게 됩니다.
+
+## Effect of Histogram Equalization
+
+![example](/images/2023-11-09-histogram_equaized/example.png)
+
+기존 이미지(a)의 비해 히스토그램 평활화가 된 이미지(c)가 기존 이미지의 비해 뚜렷한 대비를 가지고 있는 것을 확인 할 수 있습니다.
+
+<span style="color:red">하지만 아래 사진과 같이 항상 모든 이미지에 대해서 좋은 결과가 나오는 것은 아니기 때문에 잘 확인해야한다.</span>
+
+![bad_example](/images/2023-11-09-histogram_equaized/bad_example.jpeg)
+
+
+## Python Code
 
