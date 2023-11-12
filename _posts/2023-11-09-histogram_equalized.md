@@ -62,3 +62,77 @@ published: true
 
 ## Python Code
 
+```python
+# load image
+input_color_img = cv2.imread("/content/drive/MyDrive/Computer_Vision/data/mistyroad.jpeg")
+height, width, _ = input_color_img.shape
+input_gray_img = cv2.cvtColor(input_color_img, cv2.COLOR_BGR2GRAY)
+
+cv2_imshow(input_gray_img)
+
+# gray scale에서 각각의 픽셀은 0~255까지의 값들을 가지게 때문에 다음과 같은 numpy 리스트를 만들어준다.
+histogram = np.zeros((256))
+
+# 반복문을 돌면서 각각의 픽셀이 가지는 값마다 개수를 카운팅한 후 histogram list에 저장
+for i in range(height):
+    for j in range(width):
+        histogram[int(input_gray_img[i][j])] += 1
+
+# input 이미지, 히스토그램 출력
+import matplotlib.pyplot as plt
+plt.bar(range(len(histogram)), histogram)
+```
+
+​    
+![image_1](/images/2023-11-09-histogram_equaized/image_1.png)
+​    
+ 
+![hist_1](/images/2023-11-09-histogram_equaized/hist_1.png)
+​    
+
+아래 코드는 cv2 내장 함수를 사용하지 않고 히스토그램 평활화 공식을 사용하여 직접 구현
+```python
+clin = 0
+equalizedHist = np.zeros((256))
+hisMatch = np.zeros((256))
+for i in range(len(histogram)):
+  clin += histogram[i]
+  hisMatch[i] = round(clin / (912*1368) * 255)
+
+for i in range(height):
+    for j in range(width):
+        input_gray_img[i][j] = hisMatch[input_gray_img[i][j]]
+
+for i in range(height):
+    for j in range(width):
+        equalizedHist[int(input_gray_img[i][j])] += 1
+
+plt.bar(range(len(equalizedHist)), equalizedHist)
+
+equalizedimg = np.zeros((height,width), dtype=np.uint8)
+for i in range(height):
+    for j in range(width):
+        equalizedimg[i][j] = hisMatch[input_gray_img[i][j]]
+
+cv2_imshow(equalizedimg)
+```
+
+![image_2](/images/2023-11-09-histogram_equaized/image_2.png)
+​    
+
+![hist_2](/images/2023-11-09-histogram_equaized/hist_2.png)
+    
+아래 코드는 cv2 내장함수 사용
+```python
+dst = cv2.equalizeHist(input_gray_img)
+hist = cv2.calcHist([dst], [0], None, [256], [0,256])
+cv2_imshow(dst)
+plt.bar(range(len(hist.reshape(256))), hist.reshape(256))
+```
+  
+![image_3](/images/2023-11-09-histogram_equaized/image_3.png)
+​    
+ 
+![hist_3](/images/2023-11-09-histogram_equaized/hist_3.png)
+​  
+결과를 보면 히스토그램 평활화를 사용함으로서 대비가 더 뚜렷해지는 것을 확인 할 수 있습니다.
