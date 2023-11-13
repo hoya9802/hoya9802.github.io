@@ -134,5 +134,6 @@ plt.bar(range(len(hist.reshape(256))), hist.reshape(256))
 ​    
  
 ![hist_3](/images/2023-11-09-histogram_equaized/hist_3.png)
-​  
+
+<br>
 결과를 보면 히스토그램 평활화를 사용함으로서 대비가 더 뚜렷해지는 것을 확인 할 수 있습니다.
