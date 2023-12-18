@@ -23,7 +23,7 @@ published: true
 <p align="center">$h(l) =$ |{$(j,i)|f(j,i) = l$}|<br></p>
 <p align="center">$\hat{h} = \frac{h(l)}{M\times N}$</p>
 
-![input_image](/images/2023-11-09-histogram_equaized/input_image.jpeg){: .align-center}
+![input_image](/images/2023-11-09-histogram_equaization/input_image.jpeg){: .align-center}
 
 위 그림과 같이 M과 N이 4이고 L=6인 아주 작은 영상이 있습니다. 이 영상에서 1인 화소는 7개이므로 $h(1)=7$이고, 나머지 화소의 개수를 세어보면 input image의 히스토그램은 $h = (1, 7, 4, 2, 1, 1)$이고, 이때 히스토그램 $h$를 정규화한 히스토그램의 값은 $\hat{h} = (\frac{1}{16}, \frac{7}{16}, \frac{4}{16}, \frac{2}{16}, \frac{1}{16}, \frac{1}{16}) = (0.0625, 0.4375, 0.25, 0.125, 0.0625, 0.0625)$ 으로 나오게 됩니다.
 
@@ -45,19 +45,19 @@ published: true
 
 구해진 값들로 다시 히스토그램을 만들어 보면 아래 사진과 같이 히스토그램이 평활화 된 것을 확인 할 수 있습니다.
 
-![output_image](/images/2023-11-09-histogram_equaized/output_image.jpeg)
+![output_image](/images/2023-11-09-histogram_equaization/output_image.jpeg)
 
 이런 히스토그램 평활화를 사용하면 이미지의 전반적인 대비를 향상시켜, 기존 이미지의 비해 뚜렷한 대비를 강조할 수 있게 됩니다.
 
 ## Effect of Histogram Equalization
 
-![example](/images/2023-11-09-histogram_equaized/example.png)
+![example](/images/2023-11-09-histogram_equaization/example.png)
 
 기존 이미지(a)의 비해 히스토그램 평활화가 된 이미지(c)가 기존 이미지의 비해 뚜렷한 대비를 가지고 있는 것을 확인 할 수 있습니다.
 
 <span style="color:red">하지만 아래 사진과 같이 항상 모든 이미지에 대해서 좋은 결과가 나오는 것은 아니기 때문에 잘 확인해야한다.</span>
 
-![bad_example](/images/2023-11-09-histogram_equaized/bad_example.jpeg)
+![bad_example](/images/2023-11-09-histogram_equaization/bad_example.jpeg)
 
 
 ## Python Code
@@ -84,10 +84,10 @@ plt.bar(range(len(histogram)), histogram)
 ```
 
 ​    
-![image_1](/images/2023-11-09-histogram_equaized/image_1.png)
+![image_1](/images/2023-11-09-histogram_equaization/image_1.png)
 ​    
  
-![hist_1](/images/2023-11-09-histogram_equaized/hist_1.png)
+![hist_1](/images/2023-11-09-histogram_equaization/hist_1.png)
 ​    
 
 아래 코드는 cv2 내장 함수를 사용하지 않고 히스토그램 평활화 공식을 사용하여 직접 구현
@@ -117,10 +117,10 @@ for i in range(height):
 cv2_imshow(equalizedimg)
 ```
 
-![image_2](/images/2023-11-09-histogram_equaized/image_2.png)
+![image_2](/images/2023-11-09-histogram_equaization/image_2.png)
 ​    
 
-![hist_2](/images/2023-11-09-histogram_equaized/hist_2.png)
+![hist_2](/images/2023-11-09-histogram_equaization/hist_2.png)
     
 아래 코드는 cv2 내장함수 사용
 ```python
@@ -130,10 +130,10 @@ cv2_imshow(dst)
 plt.bar(range(len(hist.reshape(256))), hist.reshape(256))
 ```
   
-![image_3](/images/2023-11-09-histogram_equaized/image_3.png)
+![image_3](/images/2023-11-09-histogram_equaization/image_3.png)
 ​    
  
-![hist_3](/images/2023-11-09-histogram_equaized/hist_3.png)
+![hist_3](/images/2023-11-09-histogram_equaization/hist_3.png)
 
 <br>
 결과를 보면 히스토그램 평활화를 사용함으로서 대비가 더 뚜렷해지는 것을 확인 할 수 있습니다.
