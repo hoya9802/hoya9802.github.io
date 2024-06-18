@@ -50,10 +50,8 @@ published: true
 
 <p><img src="https://grepp-programmers.s3.amazonaws.com/files/production/ee895b2cd9/567420db-20f4-4064-afc3-af54c4a46016.png" title="" alt="572957326.92.png"></p>
 
-## 해결방법
+### Solution
 ![Intact_solution](/images/2024-06-18-Intact_square/intact_square_sol.jpeg)<br>{: .align-center}
-
-### Python Code
 
 ```python
 # GCD function(Euclidean algorithm)
