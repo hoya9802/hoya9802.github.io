@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "[Git Blog] Jekyll 실행시 Binding Error"
+title:  "Git Blog - Jekyll 실행시 Binding Error"
 typora-root-url: ../
 categories: Blog
 tag: [Blog, Jekyll]
