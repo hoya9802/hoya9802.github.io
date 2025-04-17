@@ -11,7 +11,7 @@ search: true
 use_math: false
 redirect_from:
   - /AWS/multissh
-published: false
+published: true
 ---
 
 AWS EC2 인스턴스를 사용하다 보면 **노트북과 데스크탑을 오가며 접속해야 하는 경우**가 많습니다.  
@@ -47,6 +47,66 @@ ssh-keygen -t rsa -b 4096
 Enter file in which to save the key (/Users/yourname/.ssh/id_rsa):
 ```
  - 여기서 기본값 그대로 쓰면 ~/.ssh/id_rsa에 저장됩니다.
- - 하지만 직접 경로와 파일명 지정하고 싶다면 이렇게 입력하면 됩니다.
+ - 하지만 직접 경로 또는 파일명 지정하고 싶다면 이렇게 입력하면 됩니다.
 
+```bash
+/Users/yourname/.ssh/"원하는 파일명"
+or
+~/"원하는 경로"/"원하는 파일명"
+```
 
+## 3. 생성된 퍼블릭 키 USB로 옮기기
+
+(1) USB 연결 후 디스크 정보 확인
+
+터미널에서 다음 명령어로 USB 디스크 정보를 확인합니다.
+```bash
+diskutil list
+# 예시 결과
+/dev/disk4 (external, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *16.0 GB    disk4
+   1:             Windows_FAT_32 USB_DRIVE               16.0 GB    disk4s1
+```
+
+(2) 마운트 경로 확인 및 복사
+
+ * 만약 mount된 경로를 찾고 싶으면 아래 명령어로 mount 정보를 확인합니다.
+
+```bash
+mount | grep USB_DRIVE
+```
+
+macOS는 일반적으로 /Volumes/`<디스크 이름>` 에 USB를 마운트합니다. 예를 들어 디스크 이름이 USB_DRIVE라면 다음과 같이 복사합니다.
+```bash
+cp ~/.ssh/id_rsa.pub /Volumes/USB_DRIVE/id_rsa.pub
+```
+
+## 4. 데스크탑에서 EC2에 퍼블릭 키 등록
+
+(1) EC2 접속
+데스크탑에서 기존 키로 EC2에 접속합니다.
+
+```bash
+ssh ec2-user@<EC2-PUBLIC-IP-DNS>
+```
+
+(2) 퍼블릭 키 등록
+복사해온 id_rsa.pub 파일을 열고, 내용 전체를 복사한 뒤 EC2 내의 다음 파일을 수정합니다.
+
+```bash
+nano ~/.ssh/authorized_keys
+```
+<span style="color:red">* **주의** : 기존 key pair 아래 줄에 복사 붙여넣기 해야합니다.</span>
+
+## 5. 맥북에서 EC2 접속 시도
+
+맥북으로 돌아와 다음 명령어로 접속합니다.
+
+```bash
+ssh -i ~/.ssh/id_rsa ec2-user@<EC2-PUBLIC-IP-DNS>
+```
+
+ - 만약 키 이름을 다르게 지정했다면 해당 이름으로 -i 옵션을 수정
+
+ - 처음 접속 시 known_hosts 관련 경고 메시지가 뜰 수 있지만, yes 입력 후 진행
