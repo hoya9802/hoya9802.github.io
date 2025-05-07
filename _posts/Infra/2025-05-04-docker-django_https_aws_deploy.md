@@ -454,7 +454,7 @@ DOMAIN=example.com
 docker-compose-deploy.yml 파일이 있는 경로로 가서 아래 코드를 실행합니다.
 
 ```sh
-docker-compose -f docker-compose.deploy.yml run --rm certbot /opt/certify-init.sh
+docker-compose -f docker-compose-deploy.yml run --rm certbot /opt/certify-init.sh
 ```
 
 <h3>프록시 대기 시간에 대한 안내</h3>
