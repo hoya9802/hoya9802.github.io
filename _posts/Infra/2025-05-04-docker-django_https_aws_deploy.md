@@ -424,9 +424,9 @@ AWS에서 route 53 > 호스팅 영역에 들어간 다음, 호스팅 영역 생�
 
 Route 53에서 해당 도메인을 누르고 레코드 생성 버튼을 눌러줍니다.
 
- - 레코드 이름에 서브도메인 이름 삽입
+ - 레코드 이름에 서브도메인 입력
  - 레코드 유형은 CNAME을 선택
- - 값에는 생성한 EC2 인스턴스에 퍼블릭 IPv4 DNS을 삽입
+ - 값에는 생성한 EC2 인스턴스에 퍼블릭 IPv4 DNS을 입력
 
 ![보안그룹](https://drive.google.com/thumbnail?id=1EtCNO5Et3xW5-J0dZWAW7m43z4rHQ8GU&sz=w1000){: .align-center}
 
@@ -501,8 +501,8 @@ Let's Encrypt에서 발급한 인증서는 <span style="color:red">90일</span>�
 #!/bin/sh
 set -e
 
-cd /home/ec2-user/django-docker-deployment-with-https-using-letsencrypt
-/usr/local/bin/docker-compose -f docker-compose.deploy.yml run --rm certbot certbot renew
+cd /home/ec2-user/yourrepositoryname
+/usr/local/bin/docker-compose -f docker-compose-deploy.yml run --rm certbot certbot renew
 ```
 
 그런 다음, `chmod +x renew.sh` 명령어를 실행하여 실행 권한을 부여합니다. 
