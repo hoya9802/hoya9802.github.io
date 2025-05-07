@@ -471,6 +471,15 @@ Certificate is saved at: /etc/letsencrypt/live/yourdomain.com/fullchain.pem
 Key is saved at:         /etc/letsencrypt/live/yourdomain.com/privkey.pem
 This certificate expires on 2025-08-01.
 These files will be updated when the certificate renews.
+
+NEXT STEPS:
+- The certificate will need to be renewed before it expires. Certbot can automatically renew the certificate in the background, but you may need to take steps to enable that functionality. See https://certbot.org/renewal-setup for instructions.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+If you like Certbot, please consider supporting our work by:
+ * Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+ * Donating to EFF:                    https://eff.org/donate-le
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ```
 
 아래 명령어를 통해 기존 docker service를 모두 종료 후, 다시 실행하면 됩니다.
