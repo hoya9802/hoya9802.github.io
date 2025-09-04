@@ -99,9 +99,9 @@ if __name__ == "__main__":
     print(f"data 길이: {len(shared_data)}")
 ```
 
-- `multiprocessing.Array`는 저수준의 **공유 메모리(SHM)**를 직접 사용합니다.
+- `multiprocessing.Array`는 저수준의 <span style="color:red">**공유 메모리(SHM)**</span>를 직접 사용합니다.
 - IPC 오버헤드가 적고 속도가 빠릅니다.
-- 단, **고정 크기**만 지원.
+- 단, <span style="color:red">**고정 크기**</span>만 지원.
 
 
 ## 4. Race Condition 상황
@@ -130,7 +130,7 @@ if __name__ == "__main__":
         print(f"data 길이 : {len(shared_data)}")
 ```
 
-- 각 프로세스가 `shared_data`를 읽은 뒤 수정하고 다시 덮어쓰는 과정에서 **경쟁 상태(Race Condition)** 발생.
+- 각 프로세스가 `shared_data`를 읽은 뒤 수정하고 다시 덮어쓰는 과정에서 <span style="color:red">**경쟁 상태(Race Condition)**</span> 발생.
 - 실행할 때마다 결과가 다르게 발생.
 
 
@@ -173,4 +173,4 @@ if __name__ == "__main__":
 - `Array` → 빠르지만 크기가 고정.
 - 동시 접근 시 Race Condition이 발생할 수 있으며, `Lock`으로 동기화가 필요하다.
 
-멀티프로세싱을 제대로 활용하려면 **작업의 특성(읽기 위주 vs 쓰기 동기화 필요)**에 따라 Manager, Array, Lock을 적절히 선택하는 것이 중요합니다.
+멀티프로세싱을 제대로 활용하려면 <span style="color:red">**작업의 특성(읽기 위주 vs 쓰기 동기화 필요)**</span>에 따라 Manager, Array, Lock을 적절히 선택하는 것이 중요합니다.
